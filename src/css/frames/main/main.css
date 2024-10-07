@@ -1,0 +1,16 @@
+/* --- Main --- */
+main {
+  position: relative;
+  top: 5.4rem;
+  /* 没有这个的话会被挡在上面fixed的nav下面 */
+}
+
+main .container {
+  /* grid网格状的flex */
+  display: grid;
+  position: relative;
+  /* 左中右 */
+  grid-template-columns: 10dvw auto 20dvw;
+  column-gap: 2rem;
+}
+

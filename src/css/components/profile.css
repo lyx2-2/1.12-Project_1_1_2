@@ -1,0 +1,18 @@
+/* --- Profile --- */
+
+.profile-photo {
+  width: 2.7rem;
+  min-width: 2.7rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 0.16rem solid var(--color-primary)
+}
+
+.profile-photo img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* 图片有可能不是一个标准的正方形 为了让这个在中心应该设置 */
+  object-fit: cover;
+}
