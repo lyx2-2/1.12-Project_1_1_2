@@ -1,0 +1,15 @@
+export default class CreatePostBtn {
+  constructor() {
+    this.dom = this.#createCreatePostBtn(); // 在构造函数中赋值
+  }
+
+  #createCreatePostBtn() { // 私有方法
+    const createPostBtn = document.createElement('label');
+    createPostBtn.setAttribute('for', 'create-post');
+    createPostBtn.classList.add('btn', 'btn-primary');
+    createPostBtn.textContent = 'Create Button';
+
+    return createPostBtn; // 返回创建的按钮
+  }
+}
+
