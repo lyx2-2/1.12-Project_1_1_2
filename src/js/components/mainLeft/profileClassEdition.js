@@ -1,8 +1,8 @@
 export default class Profile {
   constructor(profileEl, mainLeft){
     this.profileEl = profileEl; // 用户数据
-        this.mainLeft = mainLeft; // 主元素
-        this.build();
+    this.mainLeft = mainLeft; // 主元素
+    this.build();
   }
 
   build(){
