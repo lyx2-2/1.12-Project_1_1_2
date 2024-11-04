@@ -6,13 +6,43 @@
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
-  border: 0.16rem solid var(--color-primary)
+  border: 0.16rem solid var(--color-primary);
 }
 
-.profile-photo img{
+.profile-photo img {
   display: block;
   width: 100%;
   height: 100%;
-  /* 图片有可能不是一个标准的正方形 为了让这个在中心应该设置 */
   object-fit: cover;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  padding: var(--left-profile-padding) 0;
+  border-radius: var(--left-profile-radius);
+  column-gap: 1rem;
+  width: 100%;
+}
+
+.profile h2 {
+  line-height: 1.2rem;
+}
+
+.profile p {
+  font-size: 0.7rem;
+  color: var(--color-gray);
+}
+
+.profile-photo-list {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.profile-photo-list .profile-photo {
+  width: 1rem;
+  min-width: 1rem;
+  height: 1rem;
+  min-height: 1rem;
+  border-width: 0.1rem;
 }

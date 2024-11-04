@@ -1,10 +1,18 @@
-import { profile, sidebar } from '../../data/db.json';
-import { findDom } from "./utils";
-// import sideBar from './components/mainLeft/sidebar'
-import Sidebar from "./components/mainLeft/sidebarClassEdition";
-import Profile from "./components/mainLeft/profileClassEdition";
-import CreatePostBtn from './components/mainLeft/createPostBtnClassEdition';
+import { profile, sidebar, highline, cards, message, request } from '../../data/db.json';
+import { findDom } from "@/js/utils";
 
+// left
+import Sidebar from "@/js/components/mainLeft/sidebar";
+import Profile from "@/js/components/mainLeft/profile";
+import { createPost as create_post_main_left} from '@/js/components/mainLeft/createPost';
+// middle
+import { create_post as create_post_main_middle} from '@/js/components/mainMiddle/createPost';
+import { CardList } from './components/mainMiddle/cardList';
+import { Highline } from '@/js/components/mainMiddle/highline';
+// right
+import { create_message } from './components/mainRight/createMessage';
+import { FriendList } from './components/mainRight/friendList';
+import { RequestList } from './components/mainRight/requestList';
 
 /* Navbar */
 const navbar =
@@ -28,30 +36,42 @@ const main_container =
 const main_left =
   findDom('.main-left', main_container)
 
-// const sidebar = sideBar
-// main_left.appendChild(sidebar);
-
 // profile
-const profileTop = new Profile(profile)
-main_left.appendChild(profileTop.dom)
+const main_left_profile = new Profile(profile)
+main_left.appendChild(main_left_profile.dom)
 
 // sidebar
 const sideBar = new Sidebar(sidebar)
 console.log(sideBar);
 main_left.appendChild(sideBar.dom)
 
-// create post button
-// const createPostBtn = createCreatePostBtn();
-// main_left.appendChild(createPostBtn);
-
-const createPostBtn = new CreatePostBtn();
-main_left.appendChild(createPostBtn.dom)
+// create button
+const main_left_create_post = create_post_main_left();
+main_left.appendChild(main_left_create_post)
 
 
 
 /* Main Middle */
+const main_middle = findDom('.main-middle', main_container)
+console.log(main_middle);
+const main_middle_highline = new Highline(highline).build()
+main_middle.appendChild(main_middle_highline)
+
+const main_middle_create_post =  create_post_main_middle(profile)
+main_middle.appendChild(main_middle_create_post)
+const main_middle_cardList = new CardList(cards).build()
+main_middle.appendChild(main_middle_cardList)
 
 /* Main Right */
+const main_right = findDom('.main-right', main_container)
+const main_right_message = create_message()
+main_right.appendChild(main_right_message)
+// friend List
+const main_right_friendList = new FriendList(message).build()
+main_right_message.appendChild(main_right_friendList)
+const main_right_request_list = new RequestList(request).build()
+main_right_message.appendChild(main_right_request_list)
+
 
 export {
   main,
@@ -60,6 +80,11 @@ export {
   navbar_container,
   navbar_container_logo,
   navbar_container_searchBar,
-  navbar_create, sideBar
+  navbar_create, sideBar,
+  main_right,
+  main_right_message,
+  main_right_friendList,
+  main_right_request_list
+
 };
 

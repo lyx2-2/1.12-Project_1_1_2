@@ -1,19 +1,17 @@
-:root{
+/* --- Nav --- */
+:root {
   --nav-background-color: #fff;
 }
 
 nav {
-  /* 可以调用前面index里面的root */
-  /* color: var(--color-white) */
   display: block;
   position: fixed;
-  z-index: 999; /* 要让他在最上面 下面的东西滚动不会覆盖这里 */
+  z-index: 999;
 
   width: 100%;
   top: 0;
   padding: 0.7rem 0;
   background: var(--nav-background-color);
-
 }
 
 nav .container {

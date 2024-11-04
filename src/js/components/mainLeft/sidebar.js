@@ -1,56 +1,56 @@
-// import { sidebar } from '../../../../data/db.json';
+import { crtDom } from "../../utils";
 
-// // 创造一个sideBar
-// const sideBar = document.createElement('div');
-// sideBar.classList.add("sidebar");
+export default class Sidebar {
+  sidebarInfo = null;
+  dom = null;
 
-// // 这个sidebar是数据
-// sidebar.forEach((item) => {
-//   // 语义化，要知道现在在做什么
-//   createSidebarItem(item)
-// });
+  constructor(sidebarInfo){
+    this.sidebarInfo = sidebarInfo
+    this.build()
+  }
 
+  build() {
+    // const sidebar = document.createElement('div')
+    this.dom = crtDom('div')
+    this.dom.classList.add('sidebar')
 
-// // 形参,打包成函数
-// function createSidebarItem(item) {
+    this.sidebarInfo.forEach(item => {
+      const menuItem = new MenuItem(item).build()
+      this.dom.appendChild(menuItem)
+      //后期熟练了再这么合并写
+      // this.dom.appendChild(new MunuItem(item).build())
+    });
 
-//   const sidebarItem = createBasicSidebarItem(item)
-//   const icon = createIcon(item)
-//   const title = createTitle(item)
-
-//   sidebarItem.appendChild(icon)
-//   sidebarItem.appendChild(title)
-//   sideBar.appendChild(sidebarItem);
-// }
-
-// function createBasicSidebarItem(item) {
-//   const sidebarItem = document.createElement('a');
-//   sidebarItem.classList.add('menu-item');
-//   sidebarItem.classList.add(item.name)
-//   return sidebarItem
-// }
-
-// function createIcon(item) {
-//   const span = document.createElement('span');
-//   const i = document.createElement('i');
-//   item.icon_class_list.forEach(iconClass => {
-//     i.classList.add(iconClass);
-//   })
-//   span.appendChild(i)
-//   return span;
-// }
-
-// function createTitle(item) {
-//   const h2 = document.createElement('h2');
-//   h2.textContent = item.name;
-//   return h2;
-// }
+    return this.dom
+  }
 
 
-// console.log(sideBar);
+}
 
-// // 这种大的模块整体 抛出去
-// export default sideBar;
-// // 或者
-// // export { sideBar }
 
+class MenuItem {
+  // icon, title, iconlist
+  title = null
+  iconList = null
+  dom = null
+
+  constructor(itemInfo) {
+    this.title = itemInfo.name
+    this.iconList = itemInfo.icon_class_list
+  }
+
+  build() {
+    this.dom = crtDom('a')
+    this.dom.classList.add('menu-item')
+
+    this.dom.innerHTML = `
+    <span>
+      <i class="${this.iconList.join(" ")}"></i>
+    </span>
+    <h2>${this.title}</h2>
+    `
+    return this.dom
+  }
+
+
+}

@@ -4,46 +4,16 @@ import { navbar,
   main,
   main_container,
   main_left,
-  sideBar} from './src/js/common';
+  sideBar,
+  navbar_container_logo,
+  navbar_container_searchBar,
+  navbar_create,
+  main_right,
+  main_right_message,
+  main_right_friendList,
+  main_right_request_list} from '@/js/common';
 
+import buttonGroupToggle from "@/js/function/buttonGroupToggle"
 
-
-
-
-
-
-
-
-// =========== Main Left Top (profile) ==============
-// const profile = document.createElement('a');
-// profile.classList.add('profile');
-// main_Left.appendChild(profile);
-
-// const profilePhoto = document.createElement('div');
-// profilePhoto.classList.add('profile-photo');
-// profile.appendChild(profilePhoto);
-
-
-// const pfElden = document.createElement('img');
-// profilePhoto.appendChild(pfElden)
-
-// pfElden.src = profileEl.img_src;
-// const profileDescription = document.createElement('div');
-// profileDescription.classList.add('profile-description')
-// profile.appendChild(profileDescription)
-
-// const profileName = document.createElement('h2')
-// profileDescription.appendChild(profileName)
-// profileName.textContent = profileEl.name
-
-// const profileID = document.createElement('p')
-// profileDescription.appendChild(profileID)
-// profileID.textContent = profileEl.at
-
-
-// // ======== Create Post Button=====================
-// const createPostBtn = document.createElement('label')
-// createPostBtn.setAttribute('for', 'create-post');
-// createPostBtn.classList.add('btn', 'btn-primary');
-// createPostBtn.textContent = 'Create Button'
-// mainLeft.appendChild(createPostBtn)
+const buttonGroup = main_right_message.querySelectorAll('span')
+buttonGroupToggle(buttonGroup)
