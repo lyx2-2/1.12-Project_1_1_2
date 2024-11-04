@@ -1,14 +1,14 @@
-import { profile, sidebar, highline, cards, message, request } from '../../data/db.json';
 import { findDom } from "@/js/utils";
+import { cards, highline, message, profile, request, sidebar } from '../../data/db.json';
 
 // left
-import Sidebar from "@/js/components/mainLeft/sidebar";
+import { createPost as create_post_main_left } from '@/js/components/mainLeft/createPost';
 import Profile from "@/js/components/mainLeft/profile";
-import { createPost as create_post_main_left} from '@/js/components/mainLeft/createPost';
+import Sidebar from "@/js/components/mainLeft/sidebar";
 // middle
-import { create_post as create_post_main_middle} from '@/js/components/mainMiddle/createPost';
-import { CardList } from './components/mainMiddle/cardList';
+import { create_post as create_post_main_middle } from '@/js/components/mainMiddle/createPost';
 import { Highline } from '@/js/components/mainMiddle/highline';
+import { CardList } from './components/mainMiddle/cardList';
 // right
 import { create_message } from './components/mainRight/createMessage';
 import { FriendList } from './components/mainRight/friendList';
@@ -57,7 +57,7 @@ console.log(main_middle);
 const main_middle_highline = new Highline(highline).build()
 main_middle.appendChild(main_middle_highline)
 
-const main_middle_create_post =  create_post_main_middle(profile)
+const main_middle_create_post = create_post_main_middle(profile)
 main_middle.appendChild(main_middle_create_post)
 const main_middle_cardList = new CardList(cards).build()
 main_middle.appendChild(main_middle_cardList)
@@ -76,15 +76,10 @@ main_right_message.appendChild(main_right_request_list)
 export {
   main,
   main_container,
-  main_left, navbar,
+  main_left, main_right, main_right_friendList, main_right_message, main_right_request_list, navbar,
   navbar_container,
   navbar_container_logo,
   navbar_container_searchBar,
-  navbar_create, sideBar,
-  main_right,
-  main_right_message,
-  main_right_friendList,
-  main_right_request_list
-
+  navbar_create, sideBar
 };
 
