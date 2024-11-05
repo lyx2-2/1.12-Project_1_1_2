@@ -9,7 +9,7 @@ export class CardList {
   }
 
   #build = () => {
-    this.#dom = crtDom()
+    this.#dom = crtDom('div')
     this.#dom.classList.add('card')
     this.#info.forEach(card => {
       this.#dom.appendChild(new Card(card).build())
@@ -36,7 +36,7 @@ class Card {
   }
 
   #build = () => {
-    this.#dom = crtDom()
+    this.#dom = crtDom('div')
     this.#dom.classList.add('info')
 
     this.#dom.appendChild(new InfoProfile(this.#info.profile).build())

@@ -39,6 +39,7 @@
   font-size: 1.5rem;
 }
 
+/* 这个info-control是like, comment, share图标和右边的书签图标 */
 .info-control .main-control {
   display: flex;
   gap: 0.5rem;
@@ -67,6 +68,7 @@
   font-size: small;
 }
 
+/* View all 3473 comments那里 */
 .view-btn {
   color: var(--color-gray);
   cursor: pointer;
